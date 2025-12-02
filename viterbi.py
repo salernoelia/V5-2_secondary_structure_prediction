@@ -2,9 +2,12 @@ import numpy as np
 from numba import jit
 
 # algorithm copied from https://www.audiolabs-erlangen.de/resources/MIR/FMP/C5/C5S3_Viterbi.html
+
 @jit(nopython=True)
 def viterbi(A, C, B, O):
     """Viterbi algorithm for solving the uncovering problem
+
+    The `viterbi` function finds the most probable sequence of hidden states (the "optimal path") in a Hidden Markov Model (HMM) given a sequence of observations, using dynamic programming. It returns this state sequence along with matrices for accumulated probabilities and backtracking.
 
     Args:
         A (np.ndarray): State transition probability matrix of dimension I x I
